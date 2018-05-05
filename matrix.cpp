@@ -46,3 +46,33 @@ void matrix::insertRow(int rowIndex, int* row)
 {
     mat[rowIndex] = row;
 }
+
+matrix matrix::subMatrix(int sub)
+{
+    matrix partialMatrix(size/2);
+    int row = 0, col = 0; // row and col to start from, default sub 1
+    int* rowVector = nullptr; // row vector to be inserted to matrix
+
+    if (sub == 2)
+        col = size/2;
+    else if (sub == 3)
+        row = size/2;
+    else if (sub == 4)
+    {
+        row = size/2;
+        col = size/2;
+    }
+
+    // fill in values of submatrix based on original matrix
+    for (int r = row; r < (row + size/2); ++r)
+    {
+        rowVector = new int[size/2];
+
+        for (int c = col; c < (col + size/2); ++c)
+            rowVector[c] = mat[r][c];
+
+        partialMatrix.insertRow(r, rowVector);
+    }
+
+    return partialMatrix;
+}
