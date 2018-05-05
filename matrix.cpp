@@ -76,3 +76,16 @@ matrix matrix::subMatrix(int sub)
 
     return partialMatrix;
 }
+
+ostream& matrix::operator<<(ostream& outs, const matrix& other)
+{
+    for (int i = 0; i < other.getSize(); ++i)
+    {
+        for (int j = 0; j < other.getSize(); ++j)
+            outs << other.getMatrixValue(i, j) << " ";
+
+        outs << endl;
+    }
+
+    return outs;
+}
