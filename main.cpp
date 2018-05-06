@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 
     cout << m1 << endl;
     cout << m1 << endl;
-    cout << divideAndConquerMultiply(m1, m1) << endl;
+    cout << strassenMultiply(m1, m1) << endl;
     return 0;
 }
 
@@ -173,10 +173,10 @@ matrix strassenMultiply(const matrix& m1, const matrix& m2)
     {
         matrix p1(strassenMultiply(m1.subMatrix(1),
                     (m2.subMatrix(2) - m2.subMatrix(4))));
-        matrix p2(strassenMultiply(m2.subMatrix(4),
-                    (m1.subMatrix(1) + m1.subMatrix(2))));
-        matrix p3(strassenMultiply(m2.subMatrix(1),
-                    (m1.subMatrix(3) + m1.subMatrix(4))));
+        matrix p2(strassenMultiply((m1.subMatrix(1) + m1.subMatrix(2)),
+                    m2.subMatrix(4)));
+        matrix p3(strassenMultiply((m1.subMatrix(3) + m1.subMatrix(4)),
+                    m2.subMatrix(1)));
         matrix p4(strassenMultiply(m1.subMatrix(4),
                     (m2.subMatrix(3) - m2.subMatrix(1))));
         matrix p5(strassenMultiply((m1.subMatrix(1) + m1.subMatrix(4)),
