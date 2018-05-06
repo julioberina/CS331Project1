@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 
     cout << m1 << endl;
     cout << m1 << endl;
-    cout << m1 + m1 << endl;
+    cout << divideAndConquerMultiply(m1, m1) << endl;
     return 0;
 }
 

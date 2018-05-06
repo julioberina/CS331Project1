@@ -42,10 +42,11 @@ void matrix::insertRow(int rowIndex, int* row)
     mat[rowIndex] = row;
 }
 
-matrix matrix::subMatrix(int sub)
+matrix matrix::subMatrix(int sub) const
 {
     matrix partialMatrix(size/2);
     int* rowVector = nullptr; // row vector to be inserted to matrix
+    int row = 0, col = 0; // rows and columns of submatrix, default 1
     int rv_row = 0, rv_col = 0; // row vector rows and columns
 
     if (sub == 2)
