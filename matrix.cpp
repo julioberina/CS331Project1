@@ -45,7 +45,6 @@ void matrix::insertRow(int rowIndex, int* row)
 matrix matrix::subMatrix(int sub)
 {
     matrix partialMatrix(size/2);
-    int row = 0, col = 0; // row and col to start from, default sub 1
     int* rowVector = nullptr; // row vector to be inserted to matrix
     int rv_row = 0, rv_col = 0; // row vector rows and columns
 
