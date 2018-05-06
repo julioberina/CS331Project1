@@ -1,10 +1,10 @@
-#pragma once
-#include <ostream>
+#ifndef MATRIX_H
+#define MATRIX_H
 
 class matrix
 {
 private:
-    int** mat
+    int** mat;
     int size;
     void copyMatrix(const matrix& other);
 public:
@@ -12,9 +12,10 @@ public:
     matrix(const matrix& other);
     void operator=(const matrix& other);
     ~matrix();
-    int getSize() { return size; }
+    int getSize() const { return size; }
     void insertRow(int rowIndex, int* row);
-    int getMatrixValue(int r, int c) { return mat[r][c]; }
+    int getMatrixValue(int r, int c) const { return mat[r][c]; }
     matrix subMatrix(int sub); // sub-matrix 1, 2, 3, 4
-    ostream& operator<<(ostream& outs, const matrix& other);
 };
+
+#endif

@@ -5,7 +5,7 @@ void matrix::copyMatrix(const matrix& other)
     if (mat == nullptr)
     {
         size = other.getSize();
-        mat = new int[size];
+        mat = new int*[size];
 
         for (int i = 0; i < size; ++i)
         {
@@ -19,24 +19,24 @@ void matrix::copyMatrix(const matrix& other)
 matrix::matrix(int n)
 {
     size = n;
-    mat = new int[n];
+    mat = new int*[n];
 }
 
 matrix::matrix(const matrix& other)
 {
-    if (this != other)
+    if (this != &other)
         copyMatrix(other);
 }
 
 void matrix::operator=(const matrix& other)
 {
-    if (this != other)
+    if (this != &other)
         copyMatrix(other);
 }
 
 matrix::~matrix()
 {
-    for (int r = 0; r < n; ++r)
+    for (int r = 0; r < size; ++r)
         delete [] mat[r];
 
     delete [] mat;
@@ -75,17 +75,4 @@ matrix matrix::subMatrix(int sub)
     }
 
     return partialMatrix;
-}
-
-ostream& matrix::operator<<(ostream& outs, const matrix& other)
-{
-    for (int i = 0; i < other.getSize(); ++i)
-    {
-        for (int j = 0; j < other.getSize(); ++j)
-            outs << other.getMatrixValue(i, j) << " ";
-
-        outs << endl;
-    }
-
-    return outs;
 }
