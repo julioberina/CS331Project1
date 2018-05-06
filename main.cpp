@@ -96,5 +96,30 @@ matrix multiply(const matrix& m1, const matrix& m2)
 
 matrix divideAndConquerMultiply(const matrix& m1, const matrix& m2)
 {
+    int n = m1.getSize();
+    matrix result(n);
+    fillMatrix(result, true);
 
+    if (n == 1)
+    {
+        result.setMatrixValue(0, 0,
+            (m1.getMatrixValue(0, 0) * m2.getMatrixValue(0, 0)));
+    }
+    else
+    {
+        result.setSubMatrix(1,
+            divideAndConquerMultiply(m1.subMatrix(1), m2.subMatrix(1)) +
+            divideAndConquerMultiply(m1.subMatrix(2), m2.subMatrix(3)));
+        result.setSubMatrix(2,
+            divideAndConquerMultiply(m1.subMatrix(1), m2.subMatrix(2)) +
+            divideAndConquerMultiply(m1.subMatrix(2), m2.subMatrix(4)));
+        result.setSubMatrix(3,
+            divideAndConquerMultiply(m1.subMatrix(3), m2.subMatrix(1)) +
+            divideAndConquerMultiply(m1.subMatrix(4), m2.subMatrix(3)));
+        result.setSubMatrix(4,
+            divideAndConquerMultiply(m1.subMatrix(3), m2.subMatrix(2)) +
+            divideAndConquerMultiply(m1.subMatrix(4), m2.subMatrix(4)));
+    }
+
+    return result;
 }
