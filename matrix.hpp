@@ -15,6 +15,7 @@ public:
     int getSize() const { return size; }
     void insertRow(int rowIndex, int* row);
     int getMatrixValue(int r, int c) const { return mat[r][c]; }
+    void setMatrixValue(int r, int c, int value) { mat[r][c] = value; }
     matrix subMatrix(int sub); // sub-matrix 1, 2, 3, 4
     void setSubMatrix(int sub, const matrix& sm);
 };

@@ -5,6 +5,7 @@ using namespace std;
 #include "matrix.hpp"
 
 ostream& operator<<(ostream&, const matrix&);
+matrix operator+(const matrix&, const matrix&);
 matrix multiply(const matrix&, const matrix&);
 matrix divideAndConquerMultiply(const matrix&, const matrix&);
 matrix strassenMultiply(const matrix&, const matrix&);
@@ -50,6 +51,23 @@ ostream& operator<<(ostream& outs, const matrix& other)
     return outs;
 }
 
+matrix operator+(const matrix& m1, const matrix& m2)
+{
+    int n = m1.getSize();
+    matrix result(n);
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            result.setMatrixValue(i, j,
+                (m1.getMatrixValue(i, j) + m2.getMatrixValue(i, j)));
+        }
+    }
+
+    return result;
+}
+
 matrix multiply(const matrix& m1, const matrix& m2)
 {
     int n = m1.getSize();
@@ -77,5 +95,5 @@ matrix multiply(const matrix& m1, const matrix& m2)
 
 matrix divideAndConquerMultiply(const matrix& m1, const matrix& m2)
 {
-    
+
 }
