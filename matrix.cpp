@@ -47,6 +47,7 @@ matrix matrix::subMatrix(int sub)
     matrix partialMatrix(size/2);
     int row = 0, col = 0; // row and col to start from, default sub 1
     int* rowVector = nullptr; // row vector to be inserted to matrix
+    int rv_row = 0, rv_col = 0; // row vector rows and columns
 
     if (sub == 2)
         col = size/2;
@@ -62,11 +63,16 @@ matrix matrix::subMatrix(int sub)
     for (int r = row; r < (row + size/2); ++r)
     {
         rowVector = new int[size/2];
+        rv_col = 0;
 
         for (int c = col; c < (col + size/2); ++c)
-            rowVector[c] = mat[r][c];
+        {
+            rowVector[rv_col] = mat[r][c];
+            ++rv_col;
+        }
 
-        partialMatrix.insertRow(r, rowVector);
+        partialMatrix.insertRow(rv_row, rowVector);
+        ++rv_row;
     }
 
     return partialMatrix;
