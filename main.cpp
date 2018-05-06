@@ -6,6 +6,7 @@ using namespace std;
 
 ostream& operator<<(ostream&, const matrix&);
 matrix operator+(const matrix&, const matrix&);
+matrix operator-(const matrix&, const matrix&);
 matrix multiply(const matrix&, const matrix&);
 matrix divideAndConquerMultiply(const matrix&, const matrix&);
 matrix strassenMultiply(const matrix&, const matrix&);
@@ -63,6 +64,24 @@ matrix operator+(const matrix& m1, const matrix& m2)
         {
             result.setMatrixValue(i, j,
                 (m1.getMatrixValue(i, j) + m2.getMatrixValue(i, j)));
+        }
+    }
+
+    return result;
+}
+
+matrix operator-(const matrix& m1, const matrix& m2)
+{
+    int n = m1.getSize();
+    matrix result(n);
+    fillMatrix(result, true);
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            result.setMatrixValue(i, j,
+                (m1.getMatrixValue(i, j) - m2.getMatrixValue(i, j)));
         }
     }
 
