@@ -11,23 +11,29 @@ matrix strassenMultiply(const matrix&, const matrix&);
 
 void fillMatrix(matrix& m)
 {
-    srand(time(0));
     int* rowVector = nullptr;
 
-    for (int i = 0; i < m.getSize() ++i)
+    for (int i = 0; i < m.getSize(); ++i)
     {
         rowVector = new int[m.getSize()];
 
         for (int j = 0; j < m.getSize(); ++j)
-            rowVector[j] = rand() % 10 + 1;
+            rowVector[j] = rand() % 5 + 1;
 
         m.insertRow(i, rowVector);
     }
 }
 
-int main()
+int main(int argc, char** argv)
 {
-    cout << "Program coming soon..." << endl;
+    srand(time(0));
+
+    matrix m1(4);
+    fillMatrix(m1);
+
+    cout << m1 << endl;
+    cout << m1 << endl;
+    cout << multiply(m1, m1) << endl;
     return 0;
 }
 
