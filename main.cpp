@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 #include "matrix.hpp"
 
@@ -6,6 +8,22 @@ ostream& operator<<(ostream&, const matrix&);
 matrix multiply(const matrix&, const matrix&);
 matrix divideAndConquerMultiply(const matrix&, const matrix&);
 matrix strassenMultiply(const matrix&, const matrix&);
+
+void fillMatrix(matrix& m)
+{
+    srand(time(0));
+    int* rowVector = nullptr;
+
+    for (int i = 0; i < m.getSize() ++i)
+    {
+        rowVector = new int[m.getSize()];
+
+        for (int j = 0; j < m.getSize(); ++j)
+            rowVector[j] = rand() % 10 + 1;
+
+        m.insertRow(i, rowVector);
+    }
+}
 
 int main()
 {
