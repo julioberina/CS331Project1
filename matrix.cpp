@@ -71,3 +71,33 @@ matrix matrix::subMatrix(int sub)
 
     return partialMatrix;
 }
+
+void matrix::setSubMatrix(int sub, const matrix& sm)
+{
+    int row = 0, col = 0; // row and col to start from, default sub 1
+    int sm_row = 0, sm_col = 0; // for sm matrix
+
+    if (sub == 2)
+        col = size/2;
+    else if (sub == 3)
+        row = size/2;
+    else if (sub == 4)
+    {
+        row = size/2;
+        col = size/2;
+    }
+
+    // fill in values of submatrix with sm
+    for (int r = row; r < (row + size/2); ++r)
+    {
+        sm_col = 0;
+
+        for (int c = col; c < (col + size/2); ++c)
+        {
+            mat[r][c] = sm.getMatrixValue(sm_row, sm_col);
+            ++sm_col;
+        }
+
+        ++sm_row;
+    }
+}

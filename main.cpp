@@ -74,3 +74,8 @@ matrix multiply(const matrix& m1, const matrix& m2)
 
     return result;
 }
+
+matrix divideAndConquerMultiply(const matrix& m1, const matrix& m2)
+{
+    
+}
