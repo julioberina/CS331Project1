@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 
     cout << m1 << endl;
     cout << m1 << endl;
-    cout << multiply(m1, m1) << endl;
+    cout << m1 + m1 << endl;
     return 0;
 }
 
@@ -55,6 +55,7 @@ matrix operator+(const matrix& m1, const matrix& m2)
 {
     int n = m1.getSize();
     matrix result(n);
+    fillMatrix(result, true);
 
     for (int i = 0; i < n; ++i)
     {
