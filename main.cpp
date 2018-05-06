@@ -10,7 +10,7 @@ matrix multiply(const matrix&, const matrix&);
 matrix divideAndConquerMultiply(const matrix&, const matrix&);
 matrix strassenMultiply(const matrix&, const matrix&);
 
-void fillMatrix(matrix& m)
+void fillMatrix(matrix& m, bool zero = false)
 {
     int* rowVector = nullptr;
 
@@ -19,7 +19,7 @@ void fillMatrix(matrix& m)
         rowVector = new int[m.getSize()];
 
         for (int j = 0; j < m.getSize(); ++j)
-            rowVector[j] = rand() % 5 + 1;
+            rowVector[j] = (zero ? 0 : rand() % 5 + 1);
 
         m.insertRow(i, rowVector);
     }
