@@ -148,27 +148,49 @@ matrix strassenMultiply(const matrix& m1, const matrix& m2)
     int n = m1.getSize();
     matrix result(n);
     fillMatrix(result, true);
-/*
-    if (n == 1)
+
+    if (n == 2)
     {
-        result.setMatrixValue(0, 0,
-            (m1.getMatrixValue(0, 0) * m2.getMatrixValue(0, 0)));
+        int p1, p2, p3, p4, p5, p6, p7;
+
+        p1 = m1.getMatrixValue(0, 0) * (m2.getMatrixValue(0, 1) - m2.getMatrixValue(1, 1));
+        p2 = m2.getMatrixValue(1, 1) * (m1.getMatrixValue(0, 0) + m1.getMatrixValue(0, 1));
+        p3 = m2.getMatrixValue(0, 0) * (m1.getMatrixValue(1, 0) + m1.getMatrixValue(1, 1));
+        p4 = m1.getMatrixValue(1, 1) * (m2.getMatrixValue(1, 0) - m2.getMatrixValue(0, 0));
+        p5 = ((m1.getMatrixValue(0, 0) + m1.getMatrixValue(1, 1)) *
+              (m2.getMatrixValue(0, 0) + m2.getMatrixValue(1, 1)));
+        p6 = ((m1.getMatrixValue(0, 1) - m1.getMatrixValue(1, 1)) *
+              (m2.getMatrixValue(1, 0) + m2.getMatrixValue(1, 1)));
+        p7 = ((m1.getMatrixValue(0, 0) - m1.getMatrixValue(1, 0)) *
+              (m2.getMatrixValue(0, 0) + m2.getMatrixValue(0, 1)));
+
+        result.setMatrixValue(0, 0, p6 + p5 + p4 - p2);
+        result.setMatrixValue(0, 1, p1 + p2);
+        result.setMatrixValue(1, 0, p3 + p4);
+        result.setMatrixValue(1, 1, p1 + p5 - p3 - p7);
     }
     else
     {
-        result.setSubMatrix(1,
-            divideAndConquerMultiply(m1.subMatrix(1), m2.subMatrix(1)) +
-            divideAndConquerMultiply(m1.subMatrix(2), m2.subMatrix(3)));
-        result.setSubMatrix(2,
-            divideAndConquerMultiply(m1.subMatrix(1), m2.subMatrix(2)) +
-            divideAndConquerMultiply(m1.subMatrix(2), m2.subMatrix(4)));
-        result.setSubMatrix(3,
-            divideAndConquerMultiply(m1.subMatrix(3), m2.subMatrix(1)) +
-            divideAndConquerMultiply(m1.subMatrix(4), m2.subMatrix(3)));
-        result.setSubMatrix(4,
-            divideAndConquerMultiply(m1.subMatrix(3), m2.subMatrix(2)) +
-            divideAndConquerMultiply(m1.subMatrix(4), m2.subMatrix(4)));
+        matrix p1(strassenMultiply(m1.subMatrix(1),
+                    (m2.subMatrix(2) - m2.subMatrix(4))));
+        matrix p2(strassenMultiply(m2.subMatrix(4),
+                    (m1.subMatrix(1) + m1.subMatrix(2))));
+        matrix p3(strassenMultiply(m2.subMatrix(1),
+                    (m1.subMatrix(3) + m1.subMatrix(4))));
+        matrix p4(strassenMultiply(m1.subMatrix(4),
+                    (m2.subMatrix(3) - m2.subMatrix(1))));
+        matrix p5(strassenMultiply((m1.subMatrix(1) + m1.subMatrix(4)),
+                    (m2.subMatrix(1) + m2.subMatrix(4))));
+        matrix p6(strassenMultiply((m1.subMatrix(2) - m1.subMatrix(4)),
+                    (m2.subMatrix(3) + m2.subMatrix(4))));
+        matrix p7(strassenMultiply((m1.subMatrix(1) - m1.subMatrix(3)),
+                    (m2.subMatrix(1) + m2.subMatrix(2))));
+
+        result.setSubMatrix(1, p6 + p5 + p4 - p2);
+        result.setSubMatrix(2, p1 + p2);
+        result.setSubMatrix(3, p3 + p4);
+        result.setSubMatrix(4, p1 + p5 - p3 - p7);
     }
-*/
+
     return result;
 }
