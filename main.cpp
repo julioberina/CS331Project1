@@ -29,13 +29,29 @@ void fillMatrix(matrix& m, bool zero = false)
 int main(int argc, char** argv)
 {
     srand(time(0));
-
-    matrix m1(4);
+    matrix m1(atoi(argv[1]));
     fillMatrix(m1);
 
+    cout << "Matrix M:" << endl;
     cout << m1 << endl;
-    cout << m1 << endl;
-    cout << strassenMultiply(m1, m1) << endl;
+    cout << "M * M by ";
+
+    switch (atoi(argv[2]))
+    {
+        case 1:
+            cout << "classical matrix multiplication:" << endl;
+            cout << multiply(m1, m1) << endl;
+        break;
+        case 2:
+            cout << "divide and conquer matrix multiplication:" << endl;
+            cout << divideAndConquerMultiply(m1, m1) << endl;
+        break;
+        case 3:
+            cout << "Strassen's algorithm:" << endl;
+            cout << strassenMultiply(m1, m1) << endl;
+        break;
+    }
+
     return 0;
 }
 
