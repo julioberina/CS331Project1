@@ -1,0 +1,55 @@
+Script started on 2018-05-08 13:05:48-0700
+CS331Project1 $ ./[K[Ktime ./Project1 4 3
+
+real	0m0.004s
+user	0m0.003s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.003s
+user	0m0.003s
+sys	0m0.000s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.003s
+user	0m0.003s
+sys	0m0.000s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.003s
+user	0m0.003s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.000s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.002s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.000s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.004s
+user	0m0.003s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.002s
+user	0m0.002s
+sys	0m0.000s
+CS331Project1 $ time ./Project1 4 3
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.000s
+CS331Project1 $ exit
+exit
+
+Script done on 2018-05-08 13:06:12-0700
