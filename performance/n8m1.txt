@@ -1,0 +1,55 @@
+Script started on 2018-05-08 13:08:36-0700
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.003s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.003s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.004s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.004s
+sys	0m0.001s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.004s
+CS331Project1 $ time ./Project1 8 1
+
+real	0m0.004s
+user	0m0.004s
+sys	0m0.001s
+CS331Project1 $ exit
+exit
+
+Script done on 2018-05-08 13:08:54-0700
