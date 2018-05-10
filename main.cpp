@@ -32,24 +32,22 @@ int main(int argc, char** argv)
     matrix m1(atoi(argv[1]));
     fillMatrix(m1);
 
-    /*
     cout << "Matrix M:" << endl;
     cout << m1 << endl;
     cout << "M * M by ";
-    */
 
     switch (atoi(argv[2]))
     {
         case 1:
-            // cout << "classical matrix multiplication:" << endl;
+            cout << "classical matrix multiplication:" << endl;
             multiply(m1, m1);
         break;
         case 2:
-            // cout << "divide and conquer matrix multiplication:" << endl;
+            cout << "divide and conquer matrix multiplication:" << endl;
             divideAndConquerMultiply(m1, m1);
         break;
         case 3:
-            // cout << "Strassen's algorithm:" << endl;
+            cout << "Strassen's algorithm:" << endl;
             strassenMultiply(m1, m1);
         break;
     }
